@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="holder">
+        <div class="password-container">
+            <div class="holder-header">Password Generator</div>
+            <div class="holder-password">
+                <p>P4$5W0rD!</p>
+                <img src="/images/file.png"/>
+            </div>
+            <div class="holder-settings">
+                <div class="first-set">
+                    <p>Character Length</p>
+                    <p class="char-num">0</p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="20" value="50" class="slider" id="myRange">
+                </div>
+                <label class="check-con">
+                    <input class="checker" type="checkbox" name="uletters">
+                    <span class="checkmark"> Include Uppercase Letters</span>
+                </label>
+                <label class="check-con">
+                    <input class="checker" type="checkbox" name="lletters">
+                    <span class="checkmark"> Include Lowercase Letters</span>
+                </label>
+                <label class="check-con">
+                    <input class="checker" type="checkbox" name="nums">
+                    <span class="checkmark"> Include Numbers</span>
+                </label>
+                <label class="check-con">
+                    <input class="checker" type="checkbox" name="syms">
+                    <span class="checkmark"> Include Symbols</span>
+                </label>
+                <div class="st-con">
+                    <div class="strength">
+                        <p>STRENGTH</p>
+                        <div class="st-eval">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gen-con">
+                    <div class="gen">GENERATE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
