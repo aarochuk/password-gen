@@ -167,6 +167,8 @@ body{
     justify-content: center;
 }
 .gen{
+    border: none;
+    background: none;
     margin-top: 1em;
     display: flex;
     align-items: center;
@@ -174,9 +176,33 @@ body{
     background-color: #a2d6ab;
     width: 90%;
     color: #13121a;
-    height: 3em;
+    height: 3.5em;
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
 }
 
 .gen:hover{
+    cursor: pointer;
+    border: 0.2em solid #a2d6ab;
+    color: #a2d6ab;
+    background-color: #13121a;
+}
+
+.st-eval > input{
+    display: none;
+}
+
+.coloured {
+    background-color: #f7cd66;
+    width: 0.7em !important;
+    height: 2em !important;
+    border: none !important;
+}
+
+.password-on{
+    color: white !important;
+}
+
+.holder-password > img:hover{
     cursor: pointer;
 }

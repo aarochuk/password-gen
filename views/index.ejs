@@ -11,49 +11,76 @@
         <div class="password-container">
             <div class="holder-header">Password Generator</div>
             <div class="holder-password">
-                <p>P4$5W0rD!</p>
+                <%if(locals.password){%>
+                    <p class="password-on copyable"><%= password%></p>
+                <%}else{%>
+                    <p class="copyable">P4$5W0rD!</p>
+                <%}%>
                 <img src="/images/file.png"/>
             </div>
             <div class="holder-settings">
-                <div class="first-set">
-                    <p>Character Length</p>
-                    <p class="char-num">0</p>
-                </div>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="20" value="50" class="slider" id="myRange">
-                </div>
-                <label class="check-con">
-                    <input class="checker" type="checkbox" name="uletters">
-                    <span class="checkmark"> Include Uppercase Letters</span>
-                </label>
-                <label class="check-con">
-                    <input class="checker" type="checkbox" name="lletters">
-                    <span class="checkmark"> Include Lowercase Letters</span>
-                </label>
-                <label class="check-con">
-                    <input class="checker" type="checkbox" name="nums">
-                    <span class="checkmark"> Include Numbers</span>
-                </label>
-                <label class="check-con">
-                    <input class="checker" type="checkbox" name="syms">
-                    <span class="checkmark"> Include Symbols</span>
-                </label>
-                <div class="st-con">
-                    <div class="strength">
-                        <p>STRENGTH</p>
-                        <div class="st-eval">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                <form action="/" id="form" class="form" method="POST">
+                    <div class="first-set">
+                        <p>Character Length</p>
+                        <p class="char-num">10</p>
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="20" value="10" class="slider" name="length">
+                    </div>
+                    <label class="check-con">
+                        <input class="checker" type="checkbox" name="upper">
+                        <span class="checkmark"> Include Uppercase Letters</span>
+                    </label>
+                    <label class="check-con">
+                        <input class="checker" type="checkbox" name="lower">
+                        <span class="checkmark"> Include Lowercase Letters</span>
+                    </label>
+                    <label class="check-con">
+                        <input class="checker" type="checkbox" name="numbers">
+                        <span class="checkmark"> Include Numbers</span>
+                    </label>
+                    <label class="check-con">
+                        <input class="checker" type="checkbox" name="special">
+                        <span class="checkmark"> Include Symbols</span>
+                    </label>
+                    <div class="st-con">
+                        <div class="strength">
+                            <p>STRENGTH</p>
+                            <div class="st-eval">
+                                <%if(locals.strength){%>
+                                    <%for (var i=0; i < strength+1; i++){%>
+                                        <div class="coloured"></div>
+                                    <%}%>
+                                    <%for (var j=0; j < 4-(strength+1); j++){%>
+                                        <div></div>
+                                    <%}%>
+                                <%}else{%>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                <%}%>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="gen-con">
-                    <div class="gen">GENERATE</div>
-                </div>
+                    <div class="gen-con">
+                        <button type="submit" class="gen">GENERATE</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <script>
+        slider = document.querySelector(".slider")
+        sliderNum = document.querySelector(".char-num")
+        slider.addEventListener('input', ()=>{
+            sliderNum.innerText = slider.value;
+        })
+        password = document.querySelector(".copyable")
+        copier = document.querySelector(".holder-password > img")
+        copier.addEventListener("click", ()=>{
+            navigator.clipboard.writeText(password.innerText);
+        })
+    </script>
 </body>
 </html>
